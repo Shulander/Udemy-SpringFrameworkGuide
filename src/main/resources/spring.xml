@@ -3,27 +3,19 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="triangle" class="us.vicentini.udemy.Triangle">
-    <property name="points">
-      <list>
-        <ref bean="zeroPoint"/>
-        <ref bean="point2"/>
-        <ref bean="point3"/>
-      </list>
-    </property>
-  </bean>
+  <bean id="triangle" class="us.vicentini.udemy.Triangle" autowire="byName"/>
 
-  <bean id="zeroPoint" class="us.vicentini.udemy.Point">
+  <bean id="pointA" class="us.vicentini.udemy.Point">
     <property name="x" value="0"/>
     <property name="y" value="0"/>
   </bean>
 
-  <bean id="point2" class="us.vicentini.udemy.Point">
+  <bean id="pointB" class="us.vicentini.udemy.Point">
     <property name="x" value="-20"/>
     <property name="y" value="0"/>
   </bean>
 
-  <bean id="point3" class="us.vicentini.udemy.Point">
+  <bean id="pointC" class="us.vicentini.udemy.Point">
     <property name="x" value="20"/>
     <property name="y" value="0"/>
   </bean>
