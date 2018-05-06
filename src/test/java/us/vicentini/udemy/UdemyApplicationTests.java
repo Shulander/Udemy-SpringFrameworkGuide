@@ -12,5 +12,4 @@ public class UdemyApplicationTests {
     public void contextLoads() {
         assertTrue(true);
     }
-
 }

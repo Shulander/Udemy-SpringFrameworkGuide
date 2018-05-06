@@ -3,13 +3,24 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="triangle" class="us.vicentini.udemy.Triangle" >
-    <property name="type" value="Equilateral" />
+  <bean id="triangle" class="us.vicentini.udemy.Triangle">
+    <property name="pointA" ref="zeroPoint"/>
+    <property name="pointB" ref="point2"/>
+    <property name="pointC" ref="point3"/>
   </bean>
 
-  <bean id="triangleConstructor" class="us.vicentini.udemy.Triangle" >
-    <constructor-arg name="height" value="10" />
-    <constructor-arg name="type" value="Equilateral" />
+  <bean id="zeroPoint" class="us.vicentini.udemy.Point">
+    <property name="x" value="0"/>
+    <property name="y" value="0"/>
   </bean>
 
+  <bean id="point2" class="us.vicentini.udemy.Point">
+    <property name="x" value="-20"/>
+    <property name="y" value="0"/>
+  </bean>
+
+  <bean id="point3" class="us.vicentini.udemy.Point">
+    <property name="x" value="20"/>
+    <property name="y" value="0"/>
+  </bean>
 </beans>
