@@ -6,11 +6,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class DrawingApp {
 
     public static void main(String[] args) {
-//        Triangle triangle = new Triangle();
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
         Triangle triangle = context.getBean("triangle", Triangle.class);
         triangle.draw();
-        System.out.println(triangle.getType());
+
+        Triangle triangleConstructor = context.getBean("triangleConstructor", Triangle.class);
+        triangleConstructor.draw();
     }
 }

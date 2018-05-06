@@ -7,4 +7,9 @@
     <property name="type" value="Equilateral" />
   </bean>
 
+  <bean id="triangleConstructor" class="us.vicentini.udemy.Triangle" >
+    <constructor-arg name="height" value="10" />
+    <constructor-arg name="type" value="Equilateral" />
+  </bean>
+
 </beans>
