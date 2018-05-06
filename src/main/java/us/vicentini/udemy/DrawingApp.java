@@ -1,16 +1,16 @@
 package us.vicentini.udemy;
 
-    import org.springframework.beans.factory.BeanFactory;
-    import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
 
     public static void main(String[] args) {
 //        Triangle triangle = new Triangle();
-        BeanFactory factory = new ClassPathXmlApplicationContext("spring.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
-        Triangle triangle = factory.getBean("triangle", Triangle.class);
-
+        Triangle triangle = context.getBean("triangle", Triangle.class);
         triangle.draw();
+        System.out.println(triangle.getType());
     }
 }
