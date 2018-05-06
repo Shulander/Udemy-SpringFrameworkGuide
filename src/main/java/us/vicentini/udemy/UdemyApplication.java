@@ -3,10 +3,10 @@ package us.vicentini.udemy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class UdemyApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(UdemyApplication.class, args);
-    }
+//    public static void main(String[] args) {
+//        SpringApplication.run(UdemyApplication.class, args);
+//    }
 }
