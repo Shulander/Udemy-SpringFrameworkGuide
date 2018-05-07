@@ -10,5 +10,6 @@ public class DrawingApp {
 
         Triangle triangle = context.getBean("triangle", Triangle.class);
         triangle.draw();
+
     }
 }
