@@ -4,13 +4,7 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
   default-init-method="init" default-destroy-method="cleanUp">
 
-  <bean id="triangle" class="us.vicentini.udemy.Triangle" init-method="init" destroy-method="cleanUp">
-    <property name="pointA" ref="pointA"/>
-    <property name="pointB" ref="pointB"/>
-    <property name="pointC" ref="pointC"/>
-  </bean>
-
-  <bean id="triangleWithDefaultCallBack" class="us.vicentini.udemy.Triangle">
+  <bean id="triangle" class="us.vicentini.udemy.Triangle">
     <property name="pointA" ref="pointA"/>
     <property name="pointB" ref="pointB"/>
     <property name="pointC" ref="pointC"/>
