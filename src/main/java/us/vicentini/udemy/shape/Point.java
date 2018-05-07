@@ -1,4 +1,4 @@
-package us.vicentini.udemy;
+package us.vicentini.udemy.shape;
 
 import lombok.Getter;
 import lombok.Setter;
