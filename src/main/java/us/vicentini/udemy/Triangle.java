@@ -6,13 +6,11 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
 
 @Getter
 @Slf4j
 @ToString
-public class Triangle implements BeanNameAware, InitializingBean, DisposableBean {
+public class Triangle implements BeanNameAware {
 
     @Setter
     private Point pointA;
@@ -36,13 +34,11 @@ public class Triangle implements BeanNameAware, InitializingBean, DisposableBean
         this.beanName = name;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        log.info(String.format("Initializing Bean: init method called for Triangle(%s)", beanName));
+    public void init() throws Exception {
+        log.info(String.format("My Initializing Bean: init method called for Triangle(%s)", beanName));
     }
 
-    @Override
-    public void destroy() throws Exception {
-        log.info(String.format("Destroying Bean: destroy method called for Triangle(%s)", beanName));
+    public void cleanUp() throws Exception {
+        log.info(String.format("My Destroying Bean: destroy method called for Triangle(%s)", beanName));
     }
 }
