@@ -1,5 +1,6 @@
 package us.vicentini.udemy;
 
+import java.util.List;
 import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,9 +17,7 @@ import org.springframework.context.ApplicationContextAware;
 @ToString
 public class Triangle implements ApplicationContextAware, BeanNameAware {
 
-    private Point pointA;
-    private Point pointB;
-    private Point pointC;
+    private List<Point> points;
 
     private ApplicationContext applicationContext = null;
 
@@ -28,13 +27,14 @@ public class Triangle implements ApplicationContextAware, BeanNameAware {
     }
 
     public void draw() {
-        log.info("Point A: " + Objects.toString(pointA));
-        log.info("Point B: " + Objects.toString(pointB));
-        log.info("Point C: " + Objects.toString(pointC));
+        for (Point point : points) {
+            log.info("Point: " + Objects.toString(point));
+        }
     }
 
     @Override
     public void setBeanName(String name) {
         log.info("My bean name is: " + name);
     }
+
 }
