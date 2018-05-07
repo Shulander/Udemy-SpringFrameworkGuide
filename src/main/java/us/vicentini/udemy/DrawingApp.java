@@ -9,10 +9,7 @@ class DrawingApp {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
-        Shape shape = context.getBean("triangle", Shape.class);
-        shape.draw();
-
-        shape = context.getBean("circle", Shape.class);
+        Shape shape = context.getBean("circle", Shape.class);
         shape.draw();
     }
 }
