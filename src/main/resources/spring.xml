@@ -10,8 +10,8 @@
   </bean>
 
   <bean id="pointA" class="us.vicentini.udemy.shape.Point">
-    <property name="x" value="0"/>
-    <property name="y" value="0"/>
+    <property name="x" value="${pointA.x}"/>
+    <property name="y" value="${pointA.y}"/>
   </bean>
 
   <bean id="pointB" class="us.vicentini.udemy.shape.Point">
@@ -24,6 +24,8 @@
     <property name="y" value="0"/>
   </bean>
 
-  <bean class="us.vicentini.udemy.configuration.DisplayNameBeanPostProcessor"/>
-
+  <bean class="us.vicentini.udemy.configuration.MyBeanFactoryPostProcessor"/>
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="pointsConfig.properties"/>
+  </bean>
 </beans>
