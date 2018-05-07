@@ -1,40 +1,48 @@
 package us.vicentini.udemy;
 
-import java.util.List;
 import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
 @Getter
-@Setter
 @Slf4j
 @ToString
-public class Triangle implements ApplicationContextAware, BeanNameAware {
+public class Triangle implements BeanNameAware, InitializingBean, DisposableBean {
 
-    private List<Point> points;
+    @Setter
+    private Point pointA;
+    @Setter
+    private Point pointB;
+    @Setter
+    private Point pointC;
 
-    private ApplicationContext applicationContext = null;
+    private String beanName;
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
 
     public void draw() {
-        for (Point point : points) {
-            log.info("Point: " + Objects.toString(point));
-        }
+        log.info("Point A: " + Objects.toString(pointA));
+        log.info("Point B: " + Objects.toString(pointB));
+        log.info("Point C: " + Objects.toString(pointC));
     }
 
     @Override
     public void setBeanName(String name) {
         log.info("My bean name is: " + name);
+        this.beanName = name;
     }
 
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        log.info(String.format("Initializing Bean: init method called for Triangle(%s)", beanName));
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        log.info(String.format("Destroying Bean: destroy method called for Triangle(%s)", beanName));
+    }
 }
