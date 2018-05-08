@@ -6,14 +6,13 @@
   xmlns:context="http://www.springframework.org/schema/context">
 
   <context:annotation-config/>
+  <context:component-scan base-package="us.vicentini.udemy"/>
 
   <bean id="triangle" class="us.vicentini.udemy.shape.Triangle">
     <property name="pointA" ref="pointA"/>
     <property name="pointB" ref="pointB"/>
     <property name="pointC" ref="pointC"/>
   </bean>
-
-  <bean id="circle" class="us.vicentini.udemy.shape.Circle"/>
 
   <bean id="pointA" class="us.vicentini.udemy.shape.Point">
     <property name="x" value="0"/>
