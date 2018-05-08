@@ -16,7 +16,6 @@
   <bean id="circle" class="us.vicentini.udemy.shape.Circle"/>
 
   <bean id="pointA" class="us.vicentini.udemy.shape.Point">
-    <qualifier value="centerRelated"/>
     <property name="x" value="0"/>
     <property name="y" value="0"/>
   </bean>
