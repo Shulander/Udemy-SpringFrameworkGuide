@@ -15,4 +15,5 @@ class DrawingApp {
         Shape shape = context.getBean("circle", Shape.class);
         shape.draw();
     }
+
 }
