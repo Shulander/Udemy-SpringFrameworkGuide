@@ -2,19 +2,19 @@ package us.vicentini.udemy.shape;
 
 import java.util.Objects;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 @Slf4j
 public class Circle implements Shape {
 
     @Getter
+    @Setter
+    @Autowired
+    @Qualifier("centerRelated")
     private Point center;
-
-    @Required
-    public void setCenter(Point center) {
-        this.center = center;
-    }
 
     @Override
     public void draw() {
