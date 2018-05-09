@@ -12,6 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 @ToString
 public class Triangle implements Shape {
 
+    @Getter
+    @Setter
+    private String name;
+
     private Point pointA;
     private Point pointB;
     private Point pointC;

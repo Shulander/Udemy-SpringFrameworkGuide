@@ -3,7 +3,7 @@ package us.vicentini.udemy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import us.vicentini.udemy.shape.Shape;
+import us.vicentini.udemy.service.ShapeService;
 
 @Slf4j
 class DrawingApp {
@@ -12,8 +12,7 @@ class DrawingApp {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
         context.registerShutdownHook();
 
-        Shape shape = context.getBean("circle", Shape.class);
-        shape.draw();
+        ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
+        log.info(shapeService.getCircle().getName());
     }
-
 }
