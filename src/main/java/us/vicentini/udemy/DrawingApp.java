@@ -14,5 +14,6 @@ class DrawingApp {
 
         ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
         log.info(shapeService.getCircle().getName());
+        log.info(shapeService.getTriangle().getName());
     }
 }

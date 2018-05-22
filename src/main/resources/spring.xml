@@ -7,6 +7,7 @@
   xmlns:context="http://www.springframework.org/schema/context">
 
   <aop:aspectj-autoproxy/>
+  <aop:config proxy-target-class="true"/>
   <context:annotation-config/>
   <context:component-scan base-package="us.vicentini.udemy"/>
 
@@ -37,4 +38,5 @@
     <property name="y" value="0"/>
   </bean>
 
+  <bean name="loggingAspect" class="us.vicentini.udemy.aspect.LoggingAspect"/>
 </beans>
