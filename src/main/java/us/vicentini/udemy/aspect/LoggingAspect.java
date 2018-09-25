@@ -14,7 +14,7 @@ public class LoggingAspect {
         log.info("Advice run. Get Method Called");
     }
 
-    @Before("allGetters()")
+    @Before("allGetters() && allCircleMethods()")
     public void wildCardAdvice() {
         log.info("Advice run. Using wildcard (1)");
     }
@@ -24,6 +24,15 @@ public class LoggingAspect {
         log.info("Advice run. Using wildcard (2)");
     }
 
+    @Before("allCircleMethods()")
+    public void allCircleMethodsBefore() {
+        log.info("Before Circle Method");
+    }
+
     @Pointcut("execution(public * get*())")
     public void allGetters(){}
+
+    @Pointcut("within(us.vicentini.udemy.shape.Circle)")
+    public void allCircleMethods(){}
+
 }
