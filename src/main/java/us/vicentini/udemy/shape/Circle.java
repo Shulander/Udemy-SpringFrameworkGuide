@@ -18,22 +18,10 @@ public class Circle implements Shape {
     @Qualifier("pointA")
     private Point center;
 
-    public void setName(String name) {
-        this.name = name;
-        log.info("Circle's setter called");
-    }
-
     @Override
     public void draw() {
         log.info("Drawing a Circle");
         log.info(toString());
-        throw new RuntimeException("error during setter");
-    }
-
-    public String setNameAndReturn(String name) {
-        this.name = name;
-        log.info("Set New Name: "+name);
-        return name;
     }
 
     @Override

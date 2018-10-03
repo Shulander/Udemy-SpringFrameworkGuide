@@ -1,9 +1,11 @@
 package us.vicentini.udemy.aspect;
 
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -50,7 +52,22 @@ public class LoggingAspect {
 
     @AfterReturning(pointcut = "args(name)", returning = "returning")
     public void afterReturning(String name, String returning) {
-        log.warn("After returning with argument: " + name + ", returning: " + returning);
+        log.info("After returning with argument: " + name + ", returning: " + returning);
+    }
+
+    @Around("allGetters() && allCircleMethods()")
+    public Object myAroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        try {
+            log.info("+ Before Around Advice");
+            Object retVal = joinPoint.proceed();
+            log.info("+ After Around Advice");
+            return retVal;
+        } catch (Throwable throwable) {
+            log.info("+ After Throwing Around Advice");
+            throw throwable;
+        } finally {
+            log.info("+ After Finally Around Advice");
+        }
     }
 
 
